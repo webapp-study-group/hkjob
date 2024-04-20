@@ -5,6 +5,7 @@ import { HttpError } from './http.error'
 import { userModule } from './modules/user'
 import cors from 'cors'
 import uploads from './uploads'
+import { jobModule } from './modules/job'
 
 let app = express()
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use(uploads.apiPrefix, uploads.router)
 app.use(userModule.apiPrefix, userModule.router)
+app.use(jobModule.apiPrefix, jobModule.router)
 
 app.use((req, res, next) =>
   next(
